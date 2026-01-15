@@ -1,0 +1,225 @@
+
+body {
+  margin: 0;
+  font-family: "Press Start 2P", monospace;
+  background: black;
+  cursor: cell;
+  overflow-x: hidden;
+}
+.hero-container {
+  padding-top: 24px;
+  min-height: 100vh;
+  background: url("https://i.pinimg.com/originals/f5/11/f5/f511f5d87892ee30bbe22b2fb107a0e4.gif") no-repeat center / contain;
+  position: relative;
+}
+
+.ticker-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  color: #00ff66;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  font-size: 11px;
+  letter-spacing: 4px;
+}
+
+.ticker-text {
+  position: absolute;
+  left: -300px;
+  animation: slideTicker 8s linear infinite;
+}
+
+@keyframes slideTicker {
+  to { transform: translateX(120vw); }
+}
+
+.hero-main-title {
+  color: #ffd400;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.step-box {
+  position: absolute;
+  text-align: center;
+}
+
+.step-build { color: #93ff05; top: 70%; left: 33%; }
+.step-submit { color: #93ff05; top: 70%; left: 52%; }
+.step-win { color: white; top: 80%; left: 43%; }
+
+hr {
+  border: 1px solid #93ff05;
+  width: 120px;
+}
+
+.car-animation-scene {
+  position: relative;
+  height: 300px;
+  margin-top: 200px;
+}
+
+.vintage-car {
+  position: absolute;
+  right: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 35px;
+  background: rgb(137, 3, 3);
+  border-radius: 8px;
+  animation: carCrash 2.6s linear forwards;
+}
+
+@keyframes carCrash {
+  to { right: 33%; }
+}
+
+.car-roof {
+  width: 90px;
+  height: 15px;
+  background: beige;
+  margin: -10px auto 0;
+}
+
+.wheel {
+  position: absolute;
+  bottom: -10px;
+  width: 20px;
+  height: 20px;
+  background: black;
+}
+
+.wheel-left { left: 10px; }
+.wheel-right { right: 10px; }
+
+.car-headlight {
+  position: absolute;
+  left: -6px;
+  top: 12px;
+  width: 6px;
+  height: 12px;
+  background: yellow;
+}
+
+.retro-btn {
+  padding: 12px 40px;
+  background: #cfcfcf;
+  color: #000;
+  border: 4px solid #000;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: inset -3px -3px 0 #9a9a9a, inset 3px 3px 0 #ffffff;
+  animation: shakeBtn 0.4s ease 3s forwards;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+.btn-signup { right: 45%; top: 50%; }
+.btn-submit-main { right: 45.5%; top: 60%; }
+
+@keyframes shakeBtn {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  25%, 75% { transform: translateY(-50%) translateX(-3px); }
+  50% { transform: translateY(-50%) translateX(3px); }
+}
+
+.info-strip {
+  height: 100px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+}
+
+.info-strip h1 {
+  color: orange;
+  font-size: 28px;
+  letter-spacing: 6px;
+}
+
+.categories-wallpaper {
+  min-height: 100vh;
+  background: url("https://i.pinimg.com/736x/59/1a/35/591a35831fbf1b73ab31aa8ead3ef229.jpg") no-repeat center / cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instruction-steps {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.instruction-steps fieldset {
+  border: 4px solid #ffd400;
+  padding: 20px 24px;
+  min-width: 260px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffd400;
+  text-align: center;
+}
+
+.instruction-steps legend {
+  padding: 0 10px;
+  color: #93ff05;
+}
+
+.section-heading {
+  position: absolute;
+  top: 45%;
+  color: #ffd400;
+  font-size: 32px;
+  letter-spacing: 8px;
+  text-shadow: 4px 4px 0 black;
+}
+
+.category-cards-container {
+  position: absolute;
+  top: 62%;
+  display: flex;
+  gap: 50px;
+}
+
+.cat-card {
+  width: 220px;
+  padding: 15px;
+  text-align: center;
+}
+
+.cat-yellow {
+  border: 4px solid #ffd400;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffd400;
+}
+
+.cat-win95 {
+ border: 4px solid #ffd400;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffd400;
+}
+
+.cat-win95 legend {
+
+color: #ffd400;
+  padding: 4px 8px;
+}
+
+.cat-card p {
+  font-size: 10px;
+  margin-top: 8px;
+  line-height: 1.4;
+}
