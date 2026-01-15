@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connecting...</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: black;
+      color: #00ff66;
+      font-family: "Press Start 2P", monospace;
+      text-align: center;
+      padding-top: 80px;
+      cursor: wait;
+    }
+
+    .box {
+      border: 4px solid #00ff66;
+      display: inline-block;
+      padding: 30px;
+      background: black;
+      width: 520px;
+    }
+
+    h1 {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .blink {
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .loading {
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .bar {
+      margin-top: 10px;
+      border: 2px solid #00ff66;
+      padding: 8px;
+      font-size: 12px;
+    }
+
+    .message {
+      display: none;
+      margin-top: 30px;
+      color: #ffd400;
+      font-size: 14px;
+    }
+
+    .retro-btn {
+      display: none;
+      margin-top: 25px;
+      padding: 10px 30px;
+      font-family: "Press Start 2P", monospace;
+      background: #cfcfcf;
+      border: 4px solid black;
+      cursor: pointer;
+      box-shadow:
+        inset -3px -3px 0 #9a9a9a,
+        inset  3px  3px 0 #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>CONNECTING TO THE INTERNET<span class="blink">_</span></h1>
+
+    <div class="loading" id="loadingText">
+      DIALING ISP...
+    </div>
+
+    <div class="bar" id="bar">
+      [                    ]
+    </div>
+
+    <div class="message" id="doneMsg">
+      ❌ CONNECTION FAILED<br><br>
+      YOUR INTERNET TAPPED OUT.<br>
+      DON'T FORGET YOU ARE LIVIN’ IN THE 90s.
+    </div>
+
+    <button class="retro-btn" id="backBtn" onclick="history.back()">
+      GO BACK
+    </button>
+  </div>
+
+<script>
+  const steps = [
+    "DIALING ISP...",
+    "HANDSHAKING MODEM...",
+    "AUTHENTICATING...",
+    "DOWNLOADING INTERNET...",
+    "ALMOST THERE..."
+  ];
+
+  let index = 0;
+  let progress = 0;
+
+  const text = document.getElementById("loadingText");
+  const bar = document.getElementById("bar");
+  const done = document.getElementById("doneMsg");
+  const btn = document.getElementById("backBtn");
+
+  const interval = setInterval(() => {
+    progress += 2;
+
+    if (progress % 20 === 0 && index < steps.length) {
+      text.textContent = steps[index];
+      index++;
+    }
+
+    let filled = Math.floor(progress / 5);
+    bar.textContent = "[ " + "#".repeat(filled) + " ".repeat(20 - filled) + " ]";
+
+    if (progress >= 100) {
+      clearInterval(interval);
+      text.style.display = "none";
+      bar.style.display = "none";
+      done.style.display = "block";
+      btn.style.display = "inline-block";
+      document.body.style.cursor = "default";
+    }
+  }, 180);
+</script>
+
+</body>
+</html>
